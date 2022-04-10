@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Employee Information</title>
+	<style>
+		body{
+			background-image: url("image.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+		}
+
+		.content {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			background: rgba(0, 0, 0, 0.5);
+			color: #f1f1f1;
+			width: 70%;
+			text-align: center;
+			transform: translate(-50%, -50%);
+			padding: 20px;
+		}
+		
+		h1 {
+			font-size: 23px;
+			font-weight: 700;
+			color: #fff;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		
+		.input {
+			outline: none;
+			font-weight: 700;
+			font-size: 16px;
+			color: #999;
+			text-align: left;
+			padding: 14px 20px;
+			margin-bottom: 15px;
+			width: 100%;
+			display: inline-block;
+			box-sizing: border-box;
+			background: #f7fafc;
+			border: 1px solid #e5e5e5;
+			transition: .3s ease;
+			border-radius: 36px;
+		}
+		
+		.input2 {
+			outline: none;
+			font-weight: 700;
+			font-size: 16px;
+			color: #999;
+			text-align: left;
+			padding: 10px 20px;
+			margin-bottom: 15px;
+			width: 100%;
+			display: inline-block;
+			box-sizing: border-box;
+			background: #f7fafc;
+			border: 1px solid #e5e5e5;
+			transition: .3s ease;
+			border-radius: 36px;
+		}
+		
+		.input:focus {
+			background: transparent;
+		}
+		
+		.button1 {
+			font-size: 18px;
+			color: #fff;
+			width: 50%;
+			background: #ff6d00;
+			border: none;
+			padding: 14px 20px;
+			font-weight: 700;
+			border-radius: 36px;
+			transition: 1s ease;
+		}
+		
+		.button1:hover {
+			background: transparent;
+			border: 2px solid white;
+			transition: 1s ease;
+		}
+	</style>
+</head>
+<center>
+	<font color="black" size="4" style="font-family: arial">
+
+		<body bgcolor="lightgrey">
+		
+			<div class="content">
+			
+				<h1>GED Employee</h1>
+			
+				<form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
+
+				<div style="width: 40%;float: left;margin-right: 30px;margin-left: 95px">
+					<input type="number" class="input" name="emp_id" autofocus size="40" placeholder="Employee ID">
+
+					<input type="text" class="input" name="first_name" placeholder="First Name">
+
+					<input type="text" class="input" name="last_name" placeholder="Last Name">
+
+					<input type="text" class="input" name="location" placeholder="Location">
+					
+					<input type="number" class="input" name="phone" placeholder="Phone, eg:0123456789">
+					</div>
+					<div style="width: 40%;float: left;">
+					<input type="text" class="input" name="pri_skill" placeholder="Primary Skills">
+					
+					<input type="number" class="input" name="ot" placeholder="Overtime (OT) in hours">
+					
+					<select name="allowance" id="allowance" class="input">
+						<option value="None">None</option>
+						<option value="Food">Food Allowance</option>
+						<option value="Transportation">Transportation Allowance</option>
+					</select>
+					
+					<select name="insurance" id="ins" class="input">
+						<option value="None">None</option>
+						<option value="Basis">Basis Insurance</option>
+						<option value="Premium">Premium Insurance</option>
+					</select>
+
+					<input type=file name="emp_image_file" class="input2">
+					</div>
+					
+					<button type="submit" class="button1" style="margin: 20px;">Save</button><br>
+
+					<button type="submit" formaction="/GetEmp" class="button1" style="margin-bottom: 20px;">View Employee List</button>
+
+				</form>
+				<a href="/about">
+					<button class="button1">About Us</button>
+				</a>
+			</div>
+		</body>
+
+	</font>
+</center>
+</html>
