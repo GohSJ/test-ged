@@ -1,3 +1,4 @@
+from crypt import methods #newly added
 from flask import Flask, render_template, request
 from pymysql import connections
 import os
@@ -33,7 +34,7 @@ def about():
 
 @app.route("/GetEmp", methods=['GET', 'POST'])
 def GetEmp():
-    return render_template('GetEmp.html', GetEmp=GetEmp)
+    return render_template('ListEmp.html', getData=GetEmp)
 
 
 @app.route("/addemp", methods=['POST'])
@@ -122,7 +123,20 @@ def delete():
     delete_emp = "DELETE FROM GEDemployee WHERE emp_id = %s"
     cursor.execute(delete_emp, (emp_id))
     db_conn.commit()
-    
+
+#Newly Added
+@app.route("/listdata", methods=['GET', 'POST'])
+def listemp():
+    try:
+        cursor = db_conn.cursor()
+
+        cursor.execute("SELECT * FROM GEDemployee")
+        getData = cursor.fetchall()
+
+    except Exception as e:
+            return str(e)
+
+    return render_template('ListAll.html', getData=getData)    
     
     
 
